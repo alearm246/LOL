@@ -1,2 +1,0 @@
-# LOL
-Created with CodeSandbox
