@@ -23,18 +23,26 @@ function ArticleCard(props) {
     });
   };
 
+  const getArticleData = () => {
+    return JSON.parse(localStorage.getItem("articles"));
+  };
+
+  //removes individual arti
   const removeArticle = () => {
     console.log("clicked");
-    let getArticleData = JSON.parse(localStorage.getItem("articles"));
+
+    let articleData = getArticleData();
 
     notifyUser();
 
-    for (let i = 0; i < getArticleData.length; i++) {
-      let article = getArticleData[i];
-      if (article.uid === article.key) {
-        getArticleData.splice(getArticleData.indexOf(article), 1);
-        localStorage.setItem("articles", JSON.stringify(getArticleData));
-        window.location.reload();
+    for (let i = 0; i < articleData.length; i++) {
+      let article = articleData[i];
+      console.log("compare", article.uid, props.uid);
+      console.log("i", i);
+      if (article.uid === props.uid) {
+        let articleIndex = articleData.indexOf(article);
+        articleData.splice(articleIndex, 1);
+        localStorage.setItem("articles", JSON.stringify(articleData));
         break;
       }
     }
@@ -43,7 +51,7 @@ function ArticleCard(props) {
   return (
     <div className={style.card}>
       <div className={style.imageContainer}>
-        <Link to={`${props.link}/${props.id}`}>
+        <Link to={`${props.link}/${props.uid}`}>
           <img
             className={style.articleImg}
             src={cardImage}
@@ -53,14 +61,14 @@ function ArticleCard(props) {
       </div>
       <div className={style.textcontainer}>
         <Link
-          to={`${props.link}/${props.id}`}
+          to={`${props.link}/${props.uid}`}
           className={style.articleLink}
           style={{ color: "white" }}
         >
           {props.title}
         </Link>
         <Link
-          to={`${props.link}/${props.id}`}
+          to={`${props.link}/${props.uid}`}
           className={style.articleLinksubtitle}
           style={{ color: "white" }}
         >

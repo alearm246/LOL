@@ -25,7 +25,7 @@ function ArticleHolder() {
     ? articleData.map(individualArticle => (
         <ArticleCard
           body={individualArticle.body}
-          id={individualArticle.uid}
+          uid={individualArticle.uid}
           key={individualArticle.uid}
           link={individualArticle.link}
           subTitle={individualArticle.subTitle}
