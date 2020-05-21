@@ -8,17 +8,15 @@ function ArticleHolder() {
 
   const [showArticle, setShowArticle] = useState(true);
 
-  //we get the article array from the localstorage and we turn
-  //we turn the array string back into an array so we can do stuff with it
+  /*
+    checks if article already exists in the localStorage and if it does
+    retrieve the data
+  */
   let articleData = localStorage.getItem("articles")
     ? JSON.parse(localStorage.getItem("articles"))
     : articleArray;
 
   localStorage.setItem("articles", JSON.stringify(articleData));
-
-  useEffect(() => {
-    console.log("article data changed");
-  }, [articleData]);
 
   //we loop through the articl data from the local storafe and render all the articles from the storage
   const articlesCards = showArticle

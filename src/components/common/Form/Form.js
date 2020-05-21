@@ -8,14 +8,26 @@ function Form(props) {
 
   let [form, setForm] = useState({ title: "", subTitle: "", body: "" });
 
+  /*
+    checks if articleId already exists in the localStorage and if it does
+    retrieve the id
+  */
   let newArticleId = localStorage.getItem("articleId")
     ? JSON.parse(localStorage.getItem("articleId"))
     : -1;
 
+  /*
+    checks if article already exists in the localStorage and if it does
+    retrieve the data
+  */
   let articleData = localStorage.getItem("articles")
     ? JSON.parse(localStorage.getItem("articles"))
     : articleArray;
 
+  /*
+    checks if articleKey already exists in the localStorage and if it does
+    retrieve the key
+  */
   let articleKey = localStorage.getItem("articleKey")
     ? JSON.parse(localStorage.getItem("articleKey"))
     : -1;
@@ -26,7 +38,7 @@ function Form(props) {
 
   //Set articleId from state into localstorage
   localStorage.setItem("articleId", JSON.stringify(newArticleId));
-
+  //Set articleKey from state into localstorage
   localStorage.setItem("articleKey", JSON.stringify(articleKey));
 
   //generates a new string Id to createe uniqe id's for the articles
@@ -39,6 +51,7 @@ function Form(props) {
     return idString;
   };
 
+  //generates a new string key to createe uniqe id's for the articles
   const generateNewKey = () => {
     let key = JSON.parse(localStorage.getItem("articleKey"));
     key++;
@@ -48,6 +61,7 @@ function Form(props) {
     return keyString;
   };
 
+  //notifies user when they have created an article
   const notifyUser = () => {
     console.log("you clicked the button");
     toast("Article Has been created go to the homepage and see!", {
@@ -58,16 +72,20 @@ function Form(props) {
     });
   };
 
+  //when users click the button it'll create their article
   const handleSubmit = event => {
     event.preventDefault();
 
+    //prevents from users creating empty articles
     if (
       form.title.length !== 0 &&
       form.subTitle.length !== 0 &&
       form.body.length !== 0
     ) {
+      //notify user
       notifyUser();
 
+      //creates new articleData based on user input
       let newData = {
         alt: "new image alt",
         uid: generateNewId(),
@@ -94,6 +112,7 @@ function Form(props) {
     //creates new article data based on user input
   };
 
+  //updates state accordingly when users input things
   const handleChange = event => {
     const { name, value } = event.target;
     setForm({
