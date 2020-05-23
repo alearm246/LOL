@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Form.module.css";
 import articleArray from "../../common/ArticleHolder/ArticleArray.js";
+import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 
 function Form(props) {
@@ -46,9 +47,7 @@ function Form(props) {
     let id = JSON.parse(localStorage.getItem("articleId"));
     id++;
     localStorage.setItem("articleId", JSON.stringify(id));
-    const idString = JSON.stringify(localStorage.getItem("articleId"));
-    console.log(idString);
-    return idString;
+    return id;
   };
 
   //generates a new string key to createe uniqe id's for the articles

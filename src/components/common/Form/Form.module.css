@@ -3,6 +3,7 @@
   justify-content: center;
   margin-top: 4%;
   width: 100%;
+  min-height: 100vh;
 }
 
 input[type="text"] {
@@ -55,4 +56,11 @@ textarea {
 
 .custom-toast {
   color: black;
+}
+
+@media screen and (orientation: portrait) {
+  textarea {
+    width: 20em;
+    height: 10em;
+  }
 }

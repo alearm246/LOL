@@ -29,6 +29,8 @@ function Card(props) {
         >
           <h3>{props.subTitle}</h3>
         </Link>
+      </div>
+      <div className={style.buttonImageContainer}>
         <img
           className={style.closeButtonImage}
           src={props.closeButtonImage}

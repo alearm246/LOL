@@ -8,19 +8,26 @@
   padding: 1.5em;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   border-radius: 0.7em;
 }
 
 .card .imageContainer {
   width: 100%;
   height: 100%;
-  max-width: 100%;
-  flex: 0 0 10em;
+}
+
+.card .buttonImageContainer {
+  width: 100%;
+  height: 100%;
 }
 
 .articleImg {
+  display: flex;
+  justify-content: center;
   transition-duration: 0.25s;
-  max-width: 100%;
+  width: 100%;
+  min-width: 8em;
 }
 .card .textcontainer {
   margin-left: 1.5em;
@@ -38,6 +45,8 @@
 }
 
 .articleLink {
+  display: flex;
+  justify-content: center;
   text-decoration: none;
   font-size: 1.5em;
   color: black;
@@ -45,6 +54,8 @@
 }
 
 .articleLinksubtitle {
+  display: flex;
+  justify-content: center;
   text-decoration: none;
   color: black;
   font-weight: bold;
@@ -53,6 +64,5 @@
 .closeButtonImage {
   width: 1.5em;
   height: 2em;
-  margin-left: 10em;
   cursor: pointer;
 }

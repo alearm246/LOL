@@ -33,7 +33,7 @@ function Blog(props) {
       <PageBody>
         {articleData.length >= 0
           ? articleData.map(article => {
-              if (article.uid === id) {
+              if (article.uid.toString() === id) {
                 return (
                   <div className={style.article}>
                     <Article

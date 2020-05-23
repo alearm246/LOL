@@ -22,3 +22,9 @@
 .button:hover {
   background-color: red;
 }
+
+@media screen and (orientation: portrait) {
+  h3 {
+    font-size: 1em;
+  }
+}
